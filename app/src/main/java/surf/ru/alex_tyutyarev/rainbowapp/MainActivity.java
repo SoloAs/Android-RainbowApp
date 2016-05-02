@@ -1,11 +1,13 @@
 package surf.ru.alex_tyutyarev.rainbowapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -45,6 +47,16 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             } );
+
+            colorsView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(getApplicationContext(), ColorActivity.class);
+                    float[] HSVColor = new float[]{(float)position, 1f, 1f};
+                    intent.putExtra("Color", HSVColor);
+                    startActivity(intent);
+                }
+            });
         }
     }
 }
