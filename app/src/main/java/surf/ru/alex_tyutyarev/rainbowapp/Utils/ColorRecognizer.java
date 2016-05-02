@@ -7,10 +7,11 @@ import java.util.HashMap;
  */
 public class ColorRecognizer {
     private HashMap<Integer, String> hueNumbers;
-    private final int COLOR_DEGREE = 30;
+    private final int COLOR_DEGREE = 30; // every 30 degrees - new HSV color
 
     public ColorRecognizer()
     {
+        // types of colours
         hueNumbers = new HashMap<>();
         hueNumbers.put(0, "Красный");
         hueNumbers.put(1, "Оранжевый");
@@ -29,15 +30,15 @@ public class ColorRecognizer {
 
     public String reсognizeColor(int degree)
     {
-        int closestColor = degree % COLOR_DEGREE;
+        int colorDiff = degree % COLOR_DEGREE;
 
 
-        if (closestColor < COLOR_DEGREE / 6)
+        if (colorDiff < COLOR_DEGREE / 6)
             return "Цвет " + hueNumbers.get(degree / COLOR_DEGREE);
         else
-        if (closestColor > COLOR_DEGREE / 6 * 5)
+        if (colorDiff > COLOR_DEGREE / 6 * 5)
             return "Цвет " + hueNumbers.get(degree / COLOR_DEGREE + 1);
-        if (closestColor < COLOR_DEGREE / 2)
+        if (colorDiff < COLOR_DEGREE / 2)
             return "Цвет " + hueNumbers.get(degree / COLOR_DEGREE)
                     + " с уклоном в " + hueNumbers.get(degree / COLOR_DEGREE + 1);
         else

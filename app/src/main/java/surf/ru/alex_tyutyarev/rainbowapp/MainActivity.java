@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    // dp to px converter
     public int dpToPx(int dp) {
         DisplayMetrics displayMetrics = getApplicationContext().getResources().getDisplayMetrics();
         int px = Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     textView.setMinHeight(0); // Min Height
                     textView.setHeight(dpToPx(100)); // Height
                     int myColor = Color.HSVToColor(new float[]{(float) position, 1f, 1f});
-                    textView.setBackgroundColor(myColor);
+                    textView.setBackgroundColor(myColor); //item backgroundcolor setting
 
                     return view;
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), ColorActivity.class);
                     float[] HSVColor = new float[]{(float)position, 1f, 1f};
                     intent.putExtra("Color", HSVColor);
-                    startActivity(intent);
+                    startActivity(intent); // starting ColorActivity
                 }
             });
         }

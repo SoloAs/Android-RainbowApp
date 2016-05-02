@@ -19,7 +19,7 @@ public class ColorActivity extends AppCompatActivity {
         ColorRecognizer colorRecognizer = new ColorRecognizer();
         float[] itemColor = (float[])getIntent().getExtras().get("Color");
         int activityColor = Color.HSVToColor(itemColor);
-
+        // background color set to item's
         this.getWindow().getDecorView().setBackgroundColor(activityColor);
         TextView attributesView = (TextView) findViewById(R.id.attributesView);
         TextView nameView = (TextView) findViewById(R.id.nameView);
@@ -35,7 +35,7 @@ public class ColorActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
+            // respond to the action bar's Up/Home button
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
